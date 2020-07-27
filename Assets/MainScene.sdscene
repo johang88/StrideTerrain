@@ -7,6 +7,7 @@ Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
         - ref!! 27a91eaf-7622-42b4-89a2-3495a753b8d9
+        - ref!! 697619e6-7091-45ae-a6bc-d2322b60fa36
         - ref!! e1d761e6-634d-4773-8d81-75dfc8e8b1c4
         - ref!! 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
         - ref!! 2dbe6fbf-7ad6-4521-b834-0e7a5d5b0908
@@ -21,14 +22,14 @@ Hierarchy:
                     5ab3300ae74fa14a9efcaa1f506407ce: !TransformComponent
                         Id: 0a30b35a-4fe7-4aa1-9efc-aa1f506407ce
                         Position: {X: 26.0, Y: 227.946335, Z: 20.0}
-                        Rotation: {X: -0.139312208, Y: 0.8764849, Z: 0.367356837, W: 0.278236032}
+                        Rotation: {X: -0.2492691, Y: 0.6776737, Z: 0.0216175616, W: 0.6914882}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     209f95c46d53de41a3dfff661934ae6c: !LightComponent
                         Id: c4959f20-536d-41de-a3df-ff661934ae6c
                         Type: !LightDirectional
                             Color: !ColorRgbProvider
-                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                                Value: {R: 0.95625, G: 0.83858645, B: 0.6873047}
                             Shadow:
                                 Enabled: true
                                 Filter: !LightShadowMapFilterTypePcf
@@ -42,7 +43,12 @@ Hierarchy:
                                 BiasParameters:
                                     DepthBias: 0.0015
                                 ComputeTransmittance: false
-                        Intensity: 5.0
+                        Intensity: 10.0
+                    be700948bd523976e63663b470b48eeb: !LightShaftComponent
+                        Id: 2d8c924a-4ac8-4cd2-b20c-c9635f0f5445
+                        DensityFactor: 0.003
+                        SampleCount: 16
+                        SeparateBoundingVolumes: true
         -   Folder: Terrain
             Entity:
                 Id: 2dbe6fbf-7ad6-4521-b834-0e7a5d5b0908
@@ -173,6 +179,21 @@ Hierarchy:
                             47b7f2884469c9d74a4712034dba6f5a: Down
                         KeysJump:
                             23fe5ceb28bd9649fa594f451bbef24b: Space
+        -   Folder: GlobalLights
+            Entity:
+                Id: 697619e6-7091-45ae-a6bc-d2322b60fa36
+                Name: Light Shafts
+                Components:
+                    5ab3300ae74fa14a9efcaa1f506407ce: !TransformComponent
+                        Id: b78f40e8-ec86-4015-8533-f2b1ce4cb500
+                        Position: {X: 45.91684, Y: 227.946, Z: 19.3355885}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 256.0, Y: 32.0, Z: 256.0}
+                        Children: {}
+                    3aea3c1dd3177ff468ae90ca5a2997a8: !LightShaftBoundingVolumeComponent
+                        Id: 2ff975e1-405a-48b4-ad5d-b29a119f07e7
+                        Model: 5c7d6249-8c69-42db-b69a-e7778346d97c:Light Shaft Volume
+                        LightShaft: ref!! 2d8c924a-4ac8-4cd2-b20c-c9635f0f5445
         -   Entity:
                 Id: 9163b44c-c81f-43ad-9ced-4f8222117a77
                 Name: Grass

@@ -131,7 +131,9 @@ SharedRenderers:
             5e059d4cc2db4ee8a1f28a40f4ac3ae8: ref!! 4316c937-6f9a-4961-a899-6394ffcc1cfe
         GBufferRenderStage: ref!! 2230593d-d4a3-4a72-be17-359d0aead755
         PostEffects: !PostProcessingEffects ref!! 608bf04d-8640-469d-b710-1ecf6a46f794
-        LightShafts: null
+        LightShafts*:
+            LightBufferDownsampleLevel: 1
+            BoundingVolumeBufferDownsampleLevel: 8
         VRSettings:
             Enabled: false
             RequiredApis: {}
