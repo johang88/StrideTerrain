@@ -1,0 +1,36 @@
+!MaterialAsset
+Id: 3b2ca53e-8664-414e-8204-4b4e79eaa69c
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Attributes:
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 0.5
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeShaderClassColor
+            MixinReference: SplineAnimateUV
+            Generics: {}
+            CompositionNodes:
+                bfb4afa2d0b7e7e7e0036a458a330913~Texture: !ComputeTextureColor
+                    Texture: f4d5cae8-a5e3-4414-ab5e-ef5a60e11adb:Textures/CheckerGrid1x1
+                    FallbackValue:
+                        Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    Scale: {X: 1.0, Y: 1.0}
+                    Offset: {X: 0.0, Y: 0.0}
+                    Swizzle: null
+                b9eb55b47ca4f20f29fa62ffc9a42e13~Direction: !ComputeVertexStreamColor
+                    Stream: !ColorVertexStreamDefinition {}
+                f1b86bc424d1496d4acbca851af9a66e~Speed: !ComputeFloat4
+                    Value: {X: 1.0, Y: 0.0, Z: 0.0, W: 0.0}
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialMetalnessMapFeature
+        MetalnessMap: !ComputeFloat
+            Value: 0.5
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

@@ -1,8 +1,16 @@
 # Stride Terrain Demo
-A custom terrain component and processor for use with the native heightmap asset. There is also a component and processor for vegetation that scatters models using a splat map and renders using Stride's instancing support. The vegetation also uses a very basic wind shader in the displacement slot.
+Implementes a terrain renderer as well as some associated features.
 
-## Usage:
+## Features
+* Terrain rendering component
+* Vegetation scattering support using instancing
+* A spline renderer that can optinally be aligned to the height map (for roads etc)
+
+## Terrain Usage:
 Add terrain component an entity, setup heightmap and material. If using a height field collider then the entity should be offset (0.5, 0, 0.5) from the origin.
+
+## Spline
+Add spline component, then add child entities, these children will be used as control points for the spline. Terrain can be set on the spline component if it should be aligned to the terrain heightmap.
 
 ## Limitations and issues
 * Only support short height conversion type on the heightmap asset, anything else will cause a null reference exception

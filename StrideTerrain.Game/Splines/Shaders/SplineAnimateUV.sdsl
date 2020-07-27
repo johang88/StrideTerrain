@@ -1,0 +1,12 @@
+shader SplineAnimateUV : ComputeColor, Texturing
+{
+	compose ComputeColor Texture;
+	compose ComputeColor Speed;
+	
+	override float4 Compute()
+	{
+		float speed = Speed.Compute().x;
+		streams.TexCoord.y += speed * Global.Time;
+		return Texture.Compute();
+	}
+};

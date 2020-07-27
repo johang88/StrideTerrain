@@ -10,10 +10,43 @@ Hierarchy:
         - ref!! 697619e6-7091-45ae-a6bc-d2322b60fa36
         - ref!! e1d761e6-634d-4773-8d81-75dfc8e8b1c4
         - ref!! 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
+        - ref!! f757f2d6-400d-4bcf-9338-a5caa424602c
         - ref!! 2dbe6fbf-7ad6-4521-b834-0e7a5d5b0908
         - ref!! 465ceb7d-af81-440f-be18-4713cbcfcebd
         - ref!! e16616b0-e01d-4abf-a283-7cd84720c9c4
     Parts:
+        -   Entity:
+                Id: 1306c606-59a7-4eac-ac4d-f1e7ca839d41
+                Name: P1
+                Components:
+                    9ad13a0b07ceaac06f98240c32ab42b7: !TransformComponent
+                        Id: 3d8105a3-b17a-446f-9451-401a2eef266a
+                        Position: {X: 29.3894444, Y: 226.37532, Z: 24.8103428}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+        -   Folder: null
+            Entity:
+                Id: 14075f24-d4e5-4fb1-8ffb-533f7c8859b8
+                Name: P3
+                Components:
+                    9ad13a0b07ceaac06f98240c32ab42b7: !TransformComponent
+                        Id: 0233bec7-3433-4f4b-8c3a-9c87fec5f1e3
+                        Position: {X: 36.95295, Y: 223.809021, Z: 42.70053}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+        -   Folder: null
+            Entity:
+                Id: 1f81045d-111c-426e-8276-bf3ba0d2c6a5
+                Name: P4
+                Components:
+                    9ad13a0b07ceaac06f98240c32ab42b7: !TransformComponent
+                        Id: 749436c2-5206-4159-be5c-977ac80fb8d3
+                        Position: {X: 44.5637169, Y: 224.484863, Z: 62.43988}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
         -   Folder: GlobalLights
             Entity:
                 Id: 27a91eaf-7622-42b4-89a2-3495a753b8d9
@@ -194,6 +227,17 @@ Hierarchy:
                         Id: 2ff975e1-405a-48b4-ad5d-b29a119f07e7
                         Model: 5c7d6249-8c69-42db-b69a-e7778346d97c:Light Shaft Volume
                         LightShaft: ref!! 2d8c924a-4ac8-4cd2-b20c-c9635f0f5445
+        -   Folder: null
+            Entity:
+                Id: 78ba666f-4678-402c-bcd1-b062ee650cd9
+                Name: P2
+                Components:
+                    9ad13a0b07ceaac06f98240c32ab42b7: !TransformComponent
+                        Id: 0a31d775-c363-4cba-8b5f-ac3524fc7f61
+                        Position: {X: 34.62996, Y: 223.604492, Z: 35.46131}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
         -   Entity:
                 Id: 9163b44c-c81f-43ad-9ced-4f8222117a77
                 Name: Grass
@@ -290,3 +334,27 @@ Hierarchy:
                         Id: 9f228b57-0a04-437b-a78c-3f3a93f80d26
                         Texture: e736b51f-6f68-4fed-9c09-201e19680ff6:Skybox Texture
                         Intensity: 3.0
+        -   Folder: null
+            Entity:
+                Id: f757f2d6-400d-4bcf-9338-a5caa424602c
+                Name: Spline Test
+                Components:
+                    b296752080481e41b569d385767428ce: !TransformComponent
+                        Id: 399bad64-4335-4963-865b-b492a585fd7a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            7d650833c01c818441953381b35158ac: ref!! 3d8105a3-b17a-446f-9451-401a2eef266a
+                            0ffe96dcefbd8b3bb1fbd94163a208f7: ref!! 0a31d775-c363-4cba-8b5f-ac3524fc7f61
+                            38eea2ffea19f24f8af0652689fb3486: ref!! 0233bec7-3433-4f4b-8c3a-9c87fec5f1e3
+                            78d6feb9afc3320e8360596d7f3c52c9: ref!! 749436c2-5206-4159-be5c-977ac80fb8d3
+                    12bc95957236ca2eb863496a2c3fc4b6: !SplineMeshComponent
+                        Id: 667b1291-6449-49a8-b0c4-bdeefdecc478
+                        SegmentLength: 1.0
+                        Width: 3.0
+                        SegmentUVLength: 4.0
+                        Material: 2fbfb7be-3d5f-4483-bfa7-1292789a167d:Terrain/Spline Road Material
+                        CastShadows: false
+                        Terrain: ref!! aee97630-8f53-43c6-ae75-d0e852528484
+                        HeightOffset: 0.025

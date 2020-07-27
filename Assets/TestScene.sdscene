@@ -1,0 +1,113 @@
+!SceneAsset
+Id: cd65a060-47d7-47e3-be97-1739bdd9170a
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! 081fbce3-baa8-41db-bc33-c126fc8585bc
+        - ref!! 5c7abd28-8758-4924-ad70-c8117e12af51
+        - ref!! eb9b2efb-9510-4b23-b063-6e1becd97b46
+    Parts:
+        -   Entity:
+                Id: 081fbce3-baa8-41db-bc33-c126fc8585bc
+                Name: Spline
+                Components:
+                    5a6bd6b3969263792813ab348c4847f3: !TransformComponent
+                        Id: a790ee3a-2f69-41f2-a644-3a630616248a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            b9d55ce0963a08434bee10d6d9bf0d93: ref!! 344bd0d4-b7b2-49bc-a51d-12cbb00edb65
+                            b50fedf3e9e72fe68d69063fcedc61b3: ref!! 757867bb-2b0b-44c5-a8b7-e662205a4188
+                            0900f152186da0f1e0afadcede63fb88: ref!! eb96c804-b691-4aba-9aaf-83ad4dfada4f
+                    3db2f9ed070cb4c9904e49e39be35c5a: !SplineMeshComponent
+                        Id: 86d9c2bd-8976-4650-a05d-2ae05730e824
+                        SegmentLength: 1.0
+                        Width: 2.0
+                        SegmentUVLength: 1.0
+                        Material: 3b2ca53e-8664-414e-8204-4b4e79eaa69c:Materials/SplineTestMaterial
+                        CastShadows: false
+                        Terrain: null
+                        HeightOffset: 0.1
+        -   Folder: null
+            Entity:
+                Id: 0ffc3556-7e2c-4b31-9b8d-c87af8102fc8
+                Name: P2
+                Components:
+                    e60db7763d36c291158884dd7a75682c: !TransformComponent
+                        Id: 757867bb-2b0b-44c5-a8b7-e662205a4188
+                        Position: {X: 0.0, Y: 0.0, Z: 2.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    bde8ee84dca22c184ae8b8d2d811cd7f: !ModelComponent
+                        Id: a14a760c-3336-43c4-8952-03552f57f836
+                        Model: 5d46f1e8-ef85-4218-a964-50d1c8d3d0aa:Models/Pillar0x5x0
+                        Materials: {}
+        -   Folder: null
+            Entity:
+                Id: 4df93f0c-7058-40af-8698-d592328ed234
+                Name: P3
+                Components:
+                    e60db7763d36c291158884dd7a75682c: !TransformComponent
+                        Id: eb96c804-b691-4aba-9aaf-83ad4dfada4f
+                        Position: {X: 5.478362, Y: 3.329001, Z: 8.473537}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    6d7611a1944e6fc3bd16ffbf41cb6fe8: !ModelComponent
+                        Id: 8e4fb191-8c38-42c9-8f6d-a553f5285188
+                        Model: 5d46f1e8-ef85-4218-a964-50d1c8d3d0aa:Models/Pillar0x5x0
+                        Materials: {}
+        -   Entity:
+                Id: 5c7abd28-8758-4924-ad70-c8117e12af51
+                Name: Camera
+                Components:
+                    d65faa97f800ad48492d36fc7152a736: !TransformComponent
+                        Id: eab0b65c-43a3-4e6c-a68b-d64226d4630f
+                        Position: {X: 7.66263866, Y: 3.197461, Z: -0.759112835}
+                        Rotation: {X: -0.189209715, Y: 0.8010392, Z: 0.130553737, W: 0.552713}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    dc381d34fc97e786fc05d4207763c3fd: !CameraComponent
+                        Id: 4ab7d726-92b9-41ea-8bfc-98743db1c9a0
+                        Name: null
+                        Projection: Perspective
+                        Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
+        -   Entity:
+                Id: eb9b2efb-9510-4b23-b063-6e1becd97b46
+                Name: Point light
+                Components:
+                    5e613675fedb9f3a66c577352a7ae7b4: !TransformComponent
+                        Id: 7adf1802-d3e2-4f6f-8553-8cd44938ef00
+                        Position: {X: 0.0, Y: 4.72705173, Z: 0.4551775}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    4007eb6c3a3f7c132ecb8c48ae86b130: !LightComponent
+                        Id: ad2b4a6f-59ee-4dc6-a812-b4f7404af032
+                        Type: !LightPoint
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Radius: 1000.0
+                            Shadow:
+                                Size: Small
+                                BiasParameters: {}
+                        Intensity: 100.0
+        -   Entity:
+                Id: fa5cf428-95e5-4f44-b44d-aef77d4088da
+                Name: P1
+                Components:
+                    e60db7763d36c291158884dd7a75682c: !TransformComponent
+                        Id: 344bd0d4-b7b2-49bc-a51d-12cbb00edb65
+                        Position: {X: 11.5488949, Y: 0.0, Z: -2.91303444}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    7f5c8be744fdb6ba3089e34a34187a71: !ModelComponent
+                        Id: 3f169c80-5960-4724-9713-8ab28a9ab1aa
+                        Model: 5d46f1e8-ef85-4218-a964-50d1c8d3d0aa:Models/Pillar0x5x0
+                        Materials: {}
