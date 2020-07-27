@@ -11,6 +11,7 @@ Hierarchy:
         - ref!! 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
         - ref!! 2dbe6fbf-7ad6-4521-b834-0e7a5d5b0908
         - ref!! 465ceb7d-af81-440f-be18-4713cbcfcebd
+        - ref!! e16616b0-e01d-4abf-a283-7cd84720c9c4
     Parts:
         -   Folder: GlobalLights
             Entity:
@@ -49,7 +50,7 @@ Hierarchy:
                 Components:
                     5a6a28482b05383b5a768593fdca28b9: !TransformComponent
                         Id: 6e7d2530-149c-40e4-9942-f2bb2b72c3d7
-                        Position: {X: 0.5, Y: 0.0, Z: 0.5}
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -66,7 +67,7 @@ Hierarchy:
                 Components:
                     a2f87f08fd8cc860ecce4aad896da22a: !TransformComponent
                         Id: d251b6c9-70a2-46f1-b891-eb401d0954cd
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: -0.5, Y: 0.0, Z: -0.5}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -124,7 +125,7 @@ Hierarchy:
                 Components:
                     b296752080481e41b569d385767428ce: !TransformComponent
                         Id: 207596b2-4880-411e-b569-d385767428ce
-                        Position: {X: 26.6270218, Y: 224.12114, Z: 20.2626858}
+                        Position: {X: 27.2226048, Y: 224.1047, Z: 20.2626858}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
@@ -173,6 +174,33 @@ Hierarchy:
                         KeysJump:
                             23fe5ceb28bd9649fa594f451bbef24b: Space
         -   Entity:
+                Id: 9163b44c-c81f-43ad-9ced-4f8222117a77
+                Name: Grass
+                Components:
+                    db46890dc5fc7e6988b807bf735ae344: !TransformComponent
+                        Id: 8ee98d8e-78db-4e2a-aad2-079ad921187a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    117dbbaa2b7693ca8c65d81bc19dc3fb: !ModelComponent
+                        Id: 2356d641-cca2-4a79-a531-216feb4ec5bf
+                        Model: f951a4b0-84ed-4659-8db9-52d1e7f87acc:Terrain/Models/Leaves
+                        Materials: {}
+                    13e64fd5508dfb96dd34f7366af40c3d: !InstancingComponent
+                        Id: d49c84bf-daa3-48b1-884b-7233e57d52de
+                        Type: !InstancingUserArray
+                            ModelTransformUsage: Ignore
+                    7ff7c47ee47d4f1157f7b27325b73c10: !TerrainVegetationComponent
+                        Id: 49ad7b74-331a-41d3-bccd-02cacdff6329
+                        Terrain: ref!! aee97630-8f53-43c6-ae75-d0e852528484
+                        Mask: fec528b9-97cb-4126-9199-8783f30cedd7:Terrain/Splatmap
+                        MaskChannel: G
+                        Density: 1.3
+                        MaxScale: 1.0
+                        MaxSlope: 0.4
+                        Seed: 0
+        -   Entity:
                 Id: a7564c4c-7704-4354-a353-9207a2232954
                 Name: CameraTarget
                 Components:
@@ -209,6 +237,18 @@ Hierarchy:
                         InvertY: false
                         RotationSpeed: 360.0
                         VerticalSpeed: 45.0
+        -   Folder: Terrain
+            Entity:
+                Id: e16616b0-e01d-4abf-a283-7cd84720c9c4
+                Name: Vegetation
+                Components:
+                    edfdfe84bc341e2ae4d3798e3e55380b: !TransformComponent
+                        Id: 1d985942-dadc-4a6d-b33d-3b72fbadfb20
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            2d94d71694e3e371c06613e71ca76383: ref!! 8ee98d8e-78db-4e2a-aad2-079ad921187a
         -   Folder: GlobalLights
             Entity:
                 Id: e1d761e6-634d-4773-8d81-75dfc8e8b1c4

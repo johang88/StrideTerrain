@@ -1,0 +1,22 @@
+
+
+shader VegetationWind : ComputeColor, PositionStream4, Texturing
+{
+    override float4 Compute()
+    {
+        float scale = streams.Position.y * 2.0;
+
+        float speed = 17.0;
+        float frequency = 1.0;
+        float amplitude = 0.02;
+        float2 phase = float2(streams.PositionWS.x, streams.PositionWS.z) * 3.14;
+
+        float2 offset = float2(
+            sin(phase.x + (Global.Time) * speed * frequency) * amplitude * scale,
+            cos(phase.y + (Global.Time) * speed * frequency) * amplitude * scale);
+	
+        streams.Position.xz += offset;
+
+        return float4(0, 0, 0, 0); // We displace the positions directly so return 0
+    }
+};

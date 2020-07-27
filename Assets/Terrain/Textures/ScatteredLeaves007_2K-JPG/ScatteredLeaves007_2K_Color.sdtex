@@ -1,0 +1,7 @@
+!Texture
+Id: 3d0338a4-240c-4256-85d5-5cb1fa5bf2ae
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/ScatteredLeaves007_2K-JPG/ScatteredLeaves007_2K_Color.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

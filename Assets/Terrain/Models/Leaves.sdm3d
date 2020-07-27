@@ -1,0 +1,20 @@
+!Model
+Id: f951a4b0-84ed-4659-8db9-52d1e7f87acc
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Terrain/Models/Leaves.obj
+Skeleton: null
+PivotPosition: {X: 0.0, Y: 0.0, Z: 0.0}
+Materials:
+    4103955082bcbec60504bbd4fce0e9f1:
+        Name: DefaultMaterial
+        MaterialInstance:
+            Material: 77d08bd1-5522-4e7d-976a-93a8132c28aa:Terrain/Models/Leaves Material
+    87ae5df8fad4f802ad9df4eaea499147:
+        Name: None
+        MaterialInstance:
+            Material: 77d08bd1-5522-4e7d-976a-93a8132c28aa:Terrain/Models/Leaves Material
+DeduplicateMaterials: false
+Modifiers: {}
+~SourceHashes:
+    a3e6cb6c72ac347f7eed7729ea2addb9~../../../Resources/Terrain/Models/Leaves.obj: 9b2d305665138b0a14abec3088349d03

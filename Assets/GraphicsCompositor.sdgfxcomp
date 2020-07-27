@@ -164,7 +164,7 @@ SharedRenderers:
     34ecb9b2633eacfc439ba8744fe05102: !PostProcessingEffects
         Id: 608bf04d-8640-469d-b710-1ecf6a46f794
         AmbientOcclusion:
-            Enabled: false
+            Enabled*: true
         LocalReflections:
             Enabled: false
             ResolvePassResolution: Full

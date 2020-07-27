@@ -1,0 +1,6 @@
+!Texture
+Id: aaca30af-b5ce-4fe2-9e68-13cb99f89a86
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/ScatteredLeaves007_2K-JPG/ScatteredLeaves007_2K_Roughness.jpg
+Type: !GrayscaleTextureType {}
