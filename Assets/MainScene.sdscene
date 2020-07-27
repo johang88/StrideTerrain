@@ -1,0 +1,231 @@
+!SceneAsset
+Id: 6498a0d3-4c08-4ed7-9a7c-57bf86eaef37
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! 27a91eaf-7622-42b4-89a2-3495a753b8d9
+        - ref!! e1d761e6-634d-4773-8d81-75dfc8e8b1c4
+        - ref!! 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
+        - ref!! 2dbe6fbf-7ad6-4521-b834-0e7a5d5b0908
+        - ref!! 465ceb7d-af81-440f-be18-4713cbcfcebd
+    Parts:
+        -   Folder: GlobalLights
+            Entity:
+                Id: 27a91eaf-7622-42b4-89a2-3495a753b8d9
+                Name: Directional light
+                Components:
+                    5ab3300ae74fa14a9efcaa1f506407ce: !TransformComponent
+                        Id: 0a30b35a-4fe7-4aa1-9efc-aa1f506407ce
+                        Position: {X: 26.0, Y: 227.946335, Z: 20.0}
+                        Rotation: {X: -0.139312208, Y: 0.8764849, Z: 0.367356837, W: 0.278236032}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    209f95c46d53de41a3dfff661934ae6c: !LightComponent
+                        Id: c4959f20-536d-41de-a3df-ff661934ae6c
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Enabled: true
+                                Filter: !LightShadowMapFilterTypePcf
+                                    FilterSize: Filter5x5
+                                Size: XLarge
+                                DepthRange:
+                                    IsAutomatic: false
+                                    ManualMaxDistance: 150.0
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic
+                                    PSSMFactor: 0.3
+                                BiasParameters:
+                                    DepthBias: 0.0015
+                                ComputeTransmittance: false
+                        Intensity: 5.0
+        -   Folder: Terrain
+            Entity:
+                Id: 2dbe6fbf-7ad6-4521-b834-0e7a5d5b0908
+                Name: Mesh
+                Components:
+                    5a6a28482b05383b5a768593fdca28b9: !TransformComponent
+                        Id: 6e7d2530-149c-40e4-9942-f2bb2b72c3d7
+                        Position: {X: 0.5, Y: 0.0, Z: 0.5}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    916c902697283ce06fc382f0a1a48316: !TerrainComponent
+                        Id: aee97630-8f53-43c6-ae75-d0e852528484
+                        Material: 9fa25818-c5d4-410c-a589-901ae650c278:Terrain/Material_Terrain
+                        Heightmap: b4f75239-7614-4766-8b24-ca3803addc5e:Terrain/Heightmap
+                        Size: 512.0
+                        CastShadows: true
+        -   Folder: Terrain
+            Entity:
+                Id: 465ceb7d-af81-440f-be18-4713cbcfcebd
+                Name: Collider
+                Components:
+                    a2f87f08fd8cc860ecce4aad896da22a: !TransformComponent
+                        Id: d251b6c9-70a2-46f1-b891-eb401d0954cd
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    8061828410929a7830c7c9da50e8aac9: !StaticColliderComponent
+                        Id: 50db2fc2-8ff6-40d5-becc-7c3aaab8059f
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            9bb6f1b2304ab0502257c38761996f92: !HeightfieldColliderShapeDesc
+                                HeightStickArraySource: !Stride.Physics.HeightStickArraySourceFromHeightmap,Stride.Physics
+                                    Heightmap: b4f75239-7614-4766-8b24-ca3803addc5e:Terrain/Heightmap
+                                FlipQuadEdges: false
+                                Centering:
+                                    Enabled: true
+                                    CenterHeight: 0.0
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
+                Id: 51a86f4d-298c-4fc4-964b-de29f9a624fc
+                Name: MannequinModel
+                Components:
+                    1245d3c0d097e44e8295e28dad432562: !TransformComponent
+                        Id: c0d34512-97d0-4ee4-8295-e28dad432562
+                        Position: {X: 0.0, Y: 4.76837158E-07, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0fa4902c57c2de428808e383912863ea: !ModelComponent
+                        Id: 2c90a40f-c257-42de-8808-e383912863ea
+                        Model: ff927b10-d3b0-4e07-b858-40a3247057a5:Models/mannequinModel
+                        Materials: {}
+                    978eabfaac453f4d9375495d32bc299f: !StrideTerrain.Player.AnimationController,StrideTerrain.Game
+                        Id: faab8e97-45ac-4d3f-9375-495d32bc299f
+                        AnimationComponent: ref!! c0b24758-fcad-47f3-a100-f94d96c5d325
+                        AnimationIdle: f4b0197b-8503-43ea-88cc-aace7c67a937:Animations/Idle
+                        AnimationWalk: f1b8201b-dc66-4f94-9b2d-3c1a111591e7:Animations/Walk
+                        AnimationRun: c78c51a2-3826-40f7-97ad-b23a3d1b55f7:Animations/Run
+                        AnimationJumpStart: b27185f7-d413-4220-8fcd-30e9a81d43ce:Animations/Jump_Start
+                        AnimationJumpMid: 87f3f321-17a7-42d6-96e0-3603207e560b:Animations/Jump_Loop
+                        AnimationJumpEnd: c4433d0b-0ed5-4084-b1c7-954588a49e25:Animations/Jump_End
+                        WalkThreshold: 0.25
+                        TimeFactor: 1.0
+                    5847b2c0adfcf347a100f94d96c5d325: !AnimationComponent
+                        Id: c0b24758-fcad-47f3-a100-f94d96c5d325
+                        Animations: {}
+        -   Entity:
+                Id: 5fc52dcf-f9f8-4c6d-b32d-3fc989aea8ad
+                Name: PlayerCharacter
+                Components:
+                    b296752080481e41b569d385767428ce: !TransformComponent
+                        Id: 207596b2-4880-411e-b569-d385767428ce
+                        Position: {X: 26.6270218, Y: 224.12114, Z: 20.2626858}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            1245d3c0d097e44e8295e28dad432562: ref!! c0d34512-97d0-4ee4-8295-e28dad432562
+                            39d4bdb202782a41869f2a6d53da4edf: ref!! b2bdd439-7802-412a-869f-2a6d53da4edf
+                    b978a0332590234b9f3a3537f50e75ae: !CharacterComponent
+                        Id: 33a078b9-9025-4b23-9f3a-3537f50e75ae
+                        CollisionGroup: KinematicFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 13.0
+                        Gravity: {X: 0.0, Y: -40.0, Z: 0.0}
+                        ColliderShapes:
+                            56a5239435c0e54188f913fd5d2f5dee: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 0.95, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    f722a19496166946a5d26eaf23d2ae03: !StrideTerrain.Player.PlayerController,StrideTerrain.Game
+                        Id: 94a122f7-1696-4669-a5d2-6eaf23d2ae03
+                        MaxRunSpeed: 8.5
+                        JumpReactionThreshold: 0.15
+                    809bf66aef692646891c293be4ca17b2: !StrideTerrain.Player.PlayerInput,StrideTerrain.Game
+                        Id: 6af69b80-69ef-4626-891c-293be4ca17b2
+                        MouseSensitivity: 100.0
+                        DeadZone: 0.25
+                        Camera: ref!! 65d1b71f-4862-4efc-b7c1-3c9d933979c7
+                        KeysLeft:
+                            188e93f66916cf656ff39c2c364a16ce: A
+                            209be0885cbd15e2824ee34abbf1e993: Left
+                        KeysRight:
+                            b19f9a0fb9749d53d2cf6e353c2dde59: D
+                            da3e9e9055cb7a4648d733f34b8a6afb: Right
+                        KeysUp:
+                            6f9526aa5d381de305cc00fa39927ff8: W
+                            0bf61a77531d87ca4bc6697a5d3a9a73: Up
+                        KeysDown:
+                            d074974d39648acf3dd67ba90125999c: S
+                            47b7f2884469c9d74a4712034dba6f5a: Down
+                        KeysJump:
+                            23fe5ceb28bd9649fa594f451bbef24b: Space
+        -   Entity:
+                Id: a7564c4c-7704-4354-a353-9207a2232954
+                Name: CameraTarget
+                Components:
+                    39d4bdb202782a41869f2a6d53da4edf: !TransformComponent
+                        Id: b2bdd439-7802-412a-869f-2a6d53da4edf
+                        Position: {X: 0.0, Y: 1.65, Z: 0.0}
+                        Rotation: {X: -0.167157218, Y: -0.557161868, Z: -0.115674, W: 0.8051389}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            a116d811cab5bf4da5211050e1d34e10: ref!! 11d816a1-b5ca-4dbf-a521-1050e1d34e10
+        -   Entity:
+                Id: a7b68422-0fb4-45c9-b853-8e17a08a3953
+                Name: Camera
+                Components:
+                    a116d811cab5bf4da5211050e1d34e10: !TransformComponent
+                        Id: 11d816a1-b5ca-4dbf-a521-1050e1d34e10
+                        Position: {X: 0.0, Y: 0.0, Z: 5.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    1fb7d1656248fc4eb7c13c9d933979c7: !CameraComponent
+                        Id: 65d1b71f-4862-4efc-b7c1-3c9d933979c7
+                        Name: null
+                        Projection: Perspective
+                        Slot: 9aeac611-d1f6-46da-a235-e20cc154e170
+                    cffbc9ddf95f8544a284e04ea2d27d8a: !StrideTerrain.Camera.ThirdPersonCamera,StrideTerrain.Game
+                        Id: ddc9fbcf-5ff9-4485-a284-e04ea2d27d8a
+                        DefaultDistance: 6.0
+                        MinimumDistance: 0.4
+                        ConeRadius: 1.25
+                        InvertX: false
+                        MinVerticalAngle: -20.0
+                        MaxVerticalAngle: 70.0
+                        InvertY: false
+                        RotationSpeed: 360.0
+                        VerticalSpeed: 45.0
+        -   Folder: GlobalLights
+            Entity:
+                Id: e1d761e6-634d-4773-8d81-75dfc8e8b1c4
+                Name: Skybox
+                Components:
+                    6e987687711b70418c85dff5a9bbc2ec: !TransformComponent
+                        Id: 8776986e-1b71-4170-8c85-dff5a9bbc2ec
+                        Position: {X: 0.0, Y: 15.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    197b9ba9a8d24847a1b8d7261d35f329: !LightComponent
+                        Id: a99b7b19-d2a8-4748-a1b8-d7261d35f329
+                        Type: !LightSkybox
+                            Skybox: 611610b6-ea64-4ba9-91d8-48f70bae24fe:Skybox
+                        Intensity: 1.5
+                    f6397b90285248a39a30d9f6245a9f87: !BackgroundComponent
+                        Id: 9f228b57-0a04-437b-a78c-3f3a93f80d26
+                        Texture: e736b51f-6f68-4fed-9c09-201e19680ff6:Skybox Texture
+                        Intensity: 3.0

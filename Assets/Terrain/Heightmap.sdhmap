@@ -1,0 +1,15 @@
+!HeightmapAsset
+Id: b4f75239-7614-4766-8b24-ca3803addc5e
+SerializedVersion: {Stride: 3.0.0.0}
+Tags: []
+Source: !file ../../Resources/Terrain/Heightmap.png
+HeightConversionParameters: !Stride.Assets.Physics.ShortHeightmapHeightConversionParameters,Stride.Assets
+    HeightRange: {X: 0.0, Y: 512.0}
+    HeightScaleCalculator: !Stride.Physics.HeightScaleCalculator,Stride.Physics {}
+Resize:
+    Enabled: false
+    Size: {X: 512, Y: 512}
+ScaleToHeightRange: true
+FloatingPointComponentRange: {X: -1.0, Y: 1.0}
+IsSymmetricShortComponent: false
+sRGB sampling: false

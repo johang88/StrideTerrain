@@ -1,0 +1,6 @@
+!Texture
+Id: 45590569-0fa2-4326-95d6-5b5a65daed8f
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/Ground025_2K-JPG/Ground025_2K_Roughness.jpg
+Type: !GrayscaleTextureType {}

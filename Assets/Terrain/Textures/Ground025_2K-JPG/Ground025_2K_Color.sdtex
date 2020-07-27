@@ -1,0 +1,7 @@
+!Texture
+Id: cac7bdc0-d95e-4ca7-9072-163470442919
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/Ground025_2K-JPG/Ground025_2K_Color.jpg
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

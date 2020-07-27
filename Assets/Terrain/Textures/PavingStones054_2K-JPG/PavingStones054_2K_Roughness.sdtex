@@ -1,0 +1,6 @@
+!Texture
+Id: c08bcbc0-0c0f-435a-8a70-19a2d864b12d
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/PavingStones054_2K-JPG/PavingStones054_2K_Roughness.jpg
+Type: !GrayscaleTextureType {}

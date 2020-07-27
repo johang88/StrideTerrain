@@ -1,0 +1,13 @@
+!Texture
+Id: fec528b9-97cb-4126-9199-8783f30cedd7
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../Resources/Terrain/Splatmap.tga
+IsCompressed: false
+Type: !ColorTextureType
+    UseSRgbSampling: false
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+    Alpha: Explicit
+    PremultiplyAlpha: false
+GenerateMipmaps: false
+IsStreamable: false
