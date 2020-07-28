@@ -82,10 +82,7 @@ namespace StrideTerrain.TerrainSystem
         /// </summary>
         private void UpdatePages(TerrainComponent terrain, TerrainVegetationComponent component, TerrainVegetationRenderData renderData)
         {
-            if (renderData.Pages != null && renderData.MaskImage != null && renderData.Mask == component.Mask && renderData.Density == component.Density
-                && renderData.MaskChannel == component.MaskChannel && renderData.MinScale == component.MinScale && renderData.MaxScale == component.MaxScale
-                && renderData.MinSlope == component.MinSlope && renderData.MaxSlope == component.MaxSlope
-                && renderData.Seed == component.Seed)
+            if (renderData.Pages != null && renderData.MaskImage != null && !component.IsDirty)
                 return;
 
             if (renderData.MaskImage == null || renderData.Mask != component.Mask)
@@ -108,28 +105,22 @@ namespace StrideTerrain.TerrainSystem
                 }
             }
 
-            // Cache render data so we won't need to recreate pages
-            renderData.Density = component.Density;
-            renderData.MaskChannel = component.MaskChannel;
-            renderData.MinScale = component.MinScale;
-            renderData.MaxScale = component.MaxScale;
-            renderData.MinSlope = component.MinSlope;
-            renderData.MaxSlope = component.MaxSlope;
-            renderData.Seed = component.Seed;
+            component.IsDirty = false;
 
+            // Cache render data so we won't need to recreate pages
             var mask = renderData.MaskImage.PixelBuffer[0];
 
-            var rng = new Random(renderData.Seed);
+            var rng = new Random(component.Seed);
             var terrainOffset = terrain.Size / 2.0f;
             var pagesPerRow = (int)terrain.Size / PageSize;
 
-            var instancesPerRow = (int)(PageSize * renderData.Density);
+            var instancesPerRow = (int)(PageSize * component.Density);
             var distancePerInstance = PageSize / (float)instancesPerRow;
 
             renderData.Pages = new TerrainVegetationPage[pagesPerRow * pagesPerRow];
 
-            var scaleRange = renderData.MaxScale - renderData.MinScale;
-            var maskChannel = (int)renderData.MaskChannel;
+            var scaleRange = component.MaxScale - component.MinScale;
+            var maskChannel = (int)component.MaskChannel;
 
             for (var pz = 0; pz < pagesPerRow; pz++)
             {
@@ -137,7 +128,7 @@ namespace StrideTerrain.TerrainSystem
                 {
                     var radius = PageSize * 0.5f;
 
-                    var pagePosition = new Vector3(px * PageSize, 0, pz * PageSize);
+                    var pagePosition = new Vector3(px * PageSize - terrainOffset, 0, pz * PageSize - terrainOffset);
 
                     var page = new TerrainVegetationPage();
                     renderData.Pages[pz * pagesPerRow + px] = page;
@@ -156,8 +147,8 @@ namespace StrideTerrain.TerrainSystem
 
                             position.Y = terrain.GetHeightAt(position.X, position.Z);
 
-                            var tx = (int)(position.X / terrain.Size * mask.Width);
-                            var ty = (int)(position.Z / terrain.Size * mask.Height);
+                            var tx = (int)((position.X + terrainOffset) / terrain.Size * mask.Width);
+                            var ty = (int)((position.Z + terrainOffset) / terrain.Size * mask.Height);
 
                             if (tx < 0 || tx >= mask.Width || ty < 0 || ty >= mask.Height)
                                 continue;
@@ -168,17 +159,14 @@ namespace StrideTerrain.TerrainSystem
 
                             var normal = terrain.GetNormalAt(position.X, position.Z);
                             var slope = 1.0f - Math.Abs(normal.Y);
-                            if (slope < renderData.MinSlope || slope > renderData.MaxSlope)
+                            if (slope < component.MinSlope || slope > component.MaxSlope)
                                 continue;
 
-                            var scale = (float)rng.NextDouble() * scaleRange + renderData.MinScale;
+                            var scale = (float)rng.NextDouble() * scaleRange + component.MinScale;
 
                             var rotation = Quaternion.RotationAxis(Vector3.UnitY, (float)rng.NextDouble() * MathUtil.TwoPi) * Quaternion.BetweenDirections(Vector3.UnitY, normal);
 
                             var scaling = new Vector3(scale);
-
-                            position.X -= terrainOffset;
-                            position.Z -= terrainOffset;
 
                             Matrix.Transformation(ref scaling, ref rotation, ref position, out var transformation);
 
@@ -187,8 +175,6 @@ namespace StrideTerrain.TerrainSystem
                     }
 
                     page.WorldPosition = pagePosition + new Vector3(radius, 0, radius);
-                    page.WorldPosition.X -= terrainOffset;
-                    page.WorldPosition.Z -= terrainOffset;
                 }
             }
         }
@@ -231,7 +217,7 @@ namespace StrideTerrain.TerrainSystem
                 for (var p = 0; p < page.Instances.Count; p++)
                 {
                     var distance = (cameraPosition - page.Instances[p].TranslationVector).LengthSquared();
-                    if (distance < maxInstanceDistanceSquared)
+                    //if (distance < maxInstanceDistanceSquared)
                     {
                         var worldMatrix = page.Instances[p];
 
@@ -314,13 +300,6 @@ namespace StrideTerrain.TerrainSystem
 
         public Texture Mask { get; set; }
         public Image MaskImage { get; set; }
-        public ColorChannel MaskChannel { get; set; }
-        public float Density { get; set; }
-        public float MinScale { get; set; }
-        public float MaxScale { get; set; }
-        public float MinSlope { get; set; }
-        public float MaxSlope { get; set; }
-        public int Seed { get; set; }
 
         public void Dispose()
         {

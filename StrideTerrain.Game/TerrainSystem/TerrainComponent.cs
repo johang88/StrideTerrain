@@ -44,6 +44,11 @@ namespace StrideTerrain.TerrainSystem
 
         public float GetHeightAt(float x, float z)
         {
+            // Origin is located at center of terrain mesh so we offset
+            x += Size / 2.0f;
+            z += Size / 2.0f;
+
+            // And scale
             x /= Size;
             z /= Size;
 
