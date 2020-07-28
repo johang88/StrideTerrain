@@ -40,39 +40,44 @@ namespace StrideTerrain.TerrainSystem
         /// </summary>
         [DataMember(40), DefaultValue(ColorChannel.R)] public ColorChannel MaskChannel { get { return _maskChannel; } set { _maskChannel = value; IsDirty = true; } }
 
-        private float _density;
+        private float _density = 1.0f;
         /// <summary>
         /// A multiplier to the density provided by the mask channel
         /// </summary>
         [DataMember(50), DefaultValue(1.0f)] public float Density { get { return _density; } set { _density = value; IsDirty = true; } }
 
-        private float _minScale;
+        private float _minScale = 0.5f;
         [DataMember(60), DefaultValue(0.5f)] public float MinScale { get { return _minScale; } set { _minScale = value; IsDirty = true; } }
 
-        private float _maxScale;
+        private float _maxScale = 1.5f;
         [DataMember(70), DefaultValue(1.5f)] public float MaxScale { get { return _maxScale; } set { _maxScale = value; IsDirty = true; } }
 
-        private float _minSlope;
+        private float _minSlope = 0.0f;
         [DataMember(80), DefaultValue(0.0f)] public float MinSlope { get { return _minSlope; } set { _minSlope = value; IsDirty = true; } }
 
-        private float _maxSlope;
+        private float _maxSlope = 1.0f;
         [DataMember(90), DefaultValue(1.0f)] public float MaxSlope { get { return _maxSlope; } set { _maxSlope = value; IsDirty = true; } }
 
         private int _seed;
         [DataMember(100)] public int Seed { get { return _seed; } set { _seed = value; IsDirty = true; } }
 
         /// <summary>
+        /// A list of splines that will block vegetation spawning, useful for roads and things
+        /// </summary>
+        [DataMember(110)] public List<Splines.SplineMeshComponent> BlockingSplines { get; set; } = new List<Splines.SplineMeshComponent>();
+
+        /// <summary>
         /// Maximum distance the vegetation is visible
         /// </summary>
         [DataMember(120), DefaultValue(64.0f)]
-        public float ViewDistance { get; set; }
+        public float ViewDistance { get; set; } = 64.0f;
 
         /// <summary>
         /// Should distance scaling be used or not.
         /// If true then the models will fade ut by scaling to 0 when approaching the maximum view distance
         /// </summary>
         [DataMember(130), DefaultValue(true)]
-        public bool UseDistanceScaling { get; set; }
+        public bool UseDistanceScaling { get; set; } = true;
 
         [DataMemberIgnore] public bool IsDirty { get; internal set; }
     }

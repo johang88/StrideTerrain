@@ -105,22 +105,24 @@ namespace StrideTerrain.TerrainSystem
                 }
             }
 
-            component.IsDirty = false;
-
             // Cache render data so we won't need to recreate pages
             var mask = renderData.MaskImage.PixelBuffer[0];
+            var maskChannel = (int)component.MaskChannel;
 
-            var rng = new Random(component.Seed);
+            // Calculate terrain center offset
             var terrainOffset = terrain.Size / 2.0f;
+
+            RasterizeBlockingSplines(terrain, component, mask, maskChannel, terrainOffset);
+
+            // Create vegetation pages
+            var rng = new Random(component.Seed);
             var pagesPerRow = (int)terrain.Size / PageSize;
 
             var instancesPerRow = (int)(PageSize * component.Density);
             var distancePerInstance = PageSize / (float)instancesPerRow;
 
             renderData.Pages = new TerrainVegetationPage[pagesPerRow * pagesPerRow];
-
             var scaleRange = component.MaxScale - component.MinScale;
-            var maskChannel = (int)component.MaskChannel;
 
             for (var pz = 0; pz < pagesPerRow; pz++)
             {
@@ -177,7 +179,69 @@ namespace StrideTerrain.TerrainSystem
                     page.WorldPosition = pagePosition + new Vector3(radius, 0, radius);
                 }
             }
+
+            component.IsDirty = false;
         }
+
+        private static void RasterizeBlockingSplines(TerrainComponent terrain, TerrainVegetationComponent component, PixelBuffer mask, int maskChannel, float terrainOffset)
+        {
+            foreach (var spline in component.BlockingSplines)
+            {
+                var vertices = new FastList<Splines.VertexPositionNormalTangentColorTexture>();
+                var indices = new FastList<int>();
+                Splines.SplineMeshBuilder.CreateSplineMesh(spline, vertices, indices);
+
+                for (var i = 0; i < indices.Count; i += 3)
+                {
+                    var vt1f = vertices[indices[i + 0]].Position;
+                    var vt2f = vertices[indices[i + 1]].Position;
+                    var vt3f = vertices[indices[i + 2]].Position;
+
+                    vt1f = (vt1f + terrainOffset) / terrain.Size * mask.Width;
+                    vt2f = (vt2f + terrainOffset) / terrain.Size * mask.Width;
+                    vt3f = (vt3f + terrainOffset) / terrain.Size * mask.Width;
+
+                    // Just ignore Y axis, works well enoguh for splines but if we 
+                    // support generic volumes in the future then we might want to project it a bit more properly
+                    // or maybe just do an offscreen render pass on the gpu ...
+                    var vt1 = new Int2((int)vt1f.X, (int)vt1f.Z);
+                    var vt2 = new Int2((int)vt2f.X, (int)vt2f.Z);
+                    var vt3 = new Int2((int)vt3f.X, (int)vt3f.Z);
+
+                    // Calculate bounding box
+                    var maxX = Math.Max(vt1.X, Math.Max(vt2.X, vt3.X));
+                    var minX = Math.Min(vt1.X, Math.Min(vt2.X, vt3.X));
+                    var maxY = Math.Max(vt1.Y, Math.Max(vt2.Y, vt3.Y));
+                    var minY = Math.Min(vt1.Y, Math.Min(vt2.Y, vt3.Y));
+
+                    // Triangle intersection
+                    var vs1 = vt2 - vt1;
+                    var vs2 = vt3 - vt1;
+
+                    for (var x = minX; x <= maxX; x++)
+                    {
+                        for (var y = minY; y < maxY; y++)
+                        {
+                            var q = new Int2(x - vt1.X, y - vt1.Y);
+
+                            var s = (float)CrossProduct(q, vs2) / CrossProduct(vs1, vs2);
+                            var t = (float)CrossProduct(vs1, q) / CrossProduct(vs1, vs2);
+
+                            if (s >= 0 && t >= 0 && (s + t) <= 1)
+                            {
+                                var currentPixel = mask.GetPixel<Color>(x, y);
+                                currentPixel[maskChannel] = 0;
+
+                                mask.SetPixel<Color>(x, y, currentPixel);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private static int CrossProduct(Int2 v1, Int2 v2)
+            => v1.X * v2.Y - v1.Y * v2.X;
 
         private void CollectVisiblePages(TerrainVegetationRenderData renderData, TerrainVegetationComponent component, CameraComponent camera)
         {

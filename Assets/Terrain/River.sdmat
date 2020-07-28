@@ -1,0 +1,74 @@
+!MaterialAsset
+Id: ae83aa52-1ef8-4f51-aa91-f06b411efeee
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Attributes:
+    Surface: !MaterialNormalMapFeature
+        NormalMap: !ComputeBinaryColor
+            Operator: Average
+            LeftChild: !ComputeShaderClassColor
+                MixinReference: SplineAnimateUV
+                Generics: {}
+                CompositionNodes:
+                    82bd6b7ce2551d9a6688bd9c9f58bde6~Texture: !ComputeTextureColor
+                        Texture: 0384ad6f-e77e-40cb-b554-cd139ccb6377:Terrain/Textures/Water_Normals
+                        FallbackValue:
+                            Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Scale: {X: 3.0, Y: 0.1}
+                        Offset: {X: 0.0, Y: 0.0}
+                        Swizzle: null
+                    bea47f4849022267208d7e4c2c64b2cb~Speed: !ComputeFloat4
+                        Value: {X: -0.55, Y: 0.0, Z: 0.0, W: 0.0}
+            RightChild: !ComputeShaderClassColor
+                MixinReference: SplineAnimateUV
+                Generics: {}
+                CompositionNodes:
+                    8a25690fbb29878d3c956798abc6f17c~Texture: !ComputeTextureColor
+                        Texture: 0384ad6f-e77e-40cb-b554-cd139ccb6377:Terrain/Textures/Water_Normals
+                        FallbackValue:
+                            Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Scale: {X: 4.0, Y: 0.5}
+                        Offset: {X: 0.0, Y: 0.0}
+                        Swizzle: null
+                    0a78c3827075699b46e2545f637c9439~Speed: !ComputeFloat4
+                        Value: {X: -0.6, Y: 0.0, Z: 0.0, W: 0.0}
+        IsXYNormal: true
+    MicroSurface: !MaterialGlossinessMapFeature
+        GlossinessMap: !ComputeFloat
+            Value: 0.896
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeTextureColor
+            FallbackValue:
+                Value: {R: 0.30859375, G: 0.368769556, B: 0.49375, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Specular: !MaterialMetalnessMapFeature
+        MetalnessMap: !ComputeFloat
+            Value: 0.0
+    SpecularModel: !MaterialSpecularMicrofacetModelFeature
+        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
+        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
+        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
+        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Emissive: !MaterialEmissiveMapFeature
+        Enabled: false
+        EmissiveMap: !ComputeColor
+            Value: {R: 0.7375, G: 0.7375, B: 0.7375, A: 1.0}
+        Intensity: !ComputeFloat
+            Value: 1.0
+    Transparency: !MaterialTransparencyBlendFeature
+        Alpha: !ComputeBinaryScalar
+            Operator: Multiply
+            LeftChild: !ComputeShaderClassScalar
+                MixinReference: SplineDepthFade
+                Generics: {}
+                CompositionNodes: {}
+            RightChild: !ComputeFloat
+                Value: 0.9
+        Tint: !ComputeColor
+            Value: {R: 0.65, G: 0.65, B: 0.65, A: 1.0}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}

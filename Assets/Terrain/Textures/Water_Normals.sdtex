@@ -1,0 +1,6 @@
+!Texture
+Id: 0384ad6f-e77e-40cb-b554-cd139ccb6377
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../Resources/Terrain/Textures/Water_Normals.jpg
+Type: !NormalMapTextureType {}

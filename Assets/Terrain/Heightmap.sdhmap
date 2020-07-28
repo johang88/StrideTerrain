@@ -4,7 +4,7 @@ SerializedVersion: {Stride: 3.0.0.0}
 Tags: []
 Source: !file ../../Resources/Terrain/Heightmap.png
 HeightConversionParameters: !Stride.Assets.Physics.ShortHeightmapHeightConversionParameters,Stride.Assets
-    HeightRange: {X: 0.0, Y: 512.0}
+    HeightRange: {X: 0.0, Y: 64.0}
     HeightScaleCalculator: !Stride.Physics.HeightScaleCalculator,Stride.Physics {}
 Resize:
     Enabled: false

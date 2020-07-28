@@ -5,7 +5,7 @@ Tags: []
 Attributes:
     Surface: !MaterialNormalMapFeature
         NormalMap: !ComputeTextureColor
-            Texture: 8ed12244-d3c7-4eed-ae20-ebc8ce02b008:Terrain/Textures/PavingStones054_2K-JPG/PavingStones054_2K_Normal
+            Texture: 68a4f60a-fb7e-4a94-a706-8b832b987496:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Normal
             FallbackValue:
                 Value: {R: 0.5019608, G: 0.5019608, B: 1.0, A: 1.0}
             Filtering: Anisotropic
@@ -15,7 +15,7 @@ Attributes:
         IsXYNormal: true
     MicroSurface: !MaterialGlossinessMapFeature
         GlossinessMap: !ComputeTextureScalar
-            Texture: c08bcbc0-0c0f-435a-8a70-19a2d864b12d:Terrain/Textures/PavingStones054_2K-JPG/PavingStones054_2K_Roughness
+            Texture: 3df4a97b-5ffc-4828-a90e-f62c7d0fd876:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Roughness
             FallbackValue:
                 Value: 1.0
             Filtering: Anisotropic
@@ -23,7 +23,7 @@ Attributes:
             Offset: {X: 0.0, Y: 0.0}
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeTextureColor
-            Texture: 7afdc224-1cfa-4a28-af4a-2519c10fa736:Terrain/Textures/PavingStones054_2K-JPG/PavingStones054_2K_Color
+            Texture: 53a59108-8ebc-4185-bbfc-208ec96b6ec0:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Color
             FallbackValue:
                 Value: {R: 1.0, G: 0.8856508, B: 0.6091625, A: 1.0}
             Filtering: Anisotropic
@@ -40,9 +40,19 @@ Attributes:
         NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
         Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Transparency: !MaterialTransparencyBlendFeature
-        Alpha: !ComputeVertexStreamScalar
-            Stream: !ColorVertexStreamDefinition {}
-            Channel: A
+        Alpha: !ComputeBinaryScalar
+            Operator: Multiply
+            LeftChild: !ComputeVertexStreamScalar
+                Stream: !ColorVertexStreamDefinition {}
+                Channel: A
+            RightChild: !ComputeTextureScalar
+                Texture: 53a59108-8ebc-4185-bbfc-208ec96b6ec0:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Color
+                FallbackValue:
+                    Value: 1.0
+                Channel: A
+                Filtering: Anisotropic
+                Scale: {X: 1.0, Y: 1.0}
+                Offset: {X: 0.0, Y: 0.0}
         Tint: !ComputeColor
             Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
     Overrides:

@@ -1,0 +1,6 @@
+!Texture
+Id: 55dc9244-833e-4fbb-bbc6-cdf2dbdc1bd8
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/Rocks011_2K-JPG/Rocks011_2K_Roughness.jpg
+Type: !GrayscaleTextureType {}

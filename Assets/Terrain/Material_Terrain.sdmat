@@ -8,10 +8,12 @@ Attributes:
             Value: 0.6
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeTextureColor
+            Texture: fec528b9-97cb-4126-9199-8783f30cedd7:Terrain/Splatmap
             FallbackValue:
                 Value: {R: 1.0, G: 0.8856508, B: 0.6091625, A: 1.0}
             Scale: {X: 1.0, Y: 1.0}
             Offset: {X: 0.0, Y: 0.0}
+            Enabled: false
             Swizzle: null
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Specular: !MaterialMetalnessMapFeature
@@ -26,6 +28,7 @@ Attributes:
         UVScale: {X: 1.0, Y: 1.0}
 Layers:
     3ea2035e54449e0d6f88430dcf102a5a:
+        Name: 'Grass '
         Material: 37a11299-acca-4bf1-b3b3-ac1d9af656eb:Terrain/Material_Layer_Grass
         BlendMap: !ComputeTextureScalar
             FallbackValue:
@@ -36,6 +39,7 @@ Layers:
         Overrides:
             UVScale: {X: 100.0, Y: 100.0}
     82087084417ce9bac53d233078b8c84c:
+        Name: Grass 2
         Material: 91aaf788-8cc3-4d57-91f4-0ae61e75dce0:Terrain/Material_Layer_Grass2
         BlendMap: !ComputeTextureScalar
             Texture: fec528b9-97cb-4126-9199-8783f30cedd7:Terrain/Splatmap
@@ -57,14 +61,16 @@ Layers:
             Offset: {X: 0.0, Y: 0.0}
         Overrides:
             UVScale: {X: 100.0, Y: 100.0}
-    4a90511b25aa441c674e06b603bb5248:
-        Material: f87ed444-13db-4736-b4e6-32ce040558d7:Terrain/Material_Layer_Road
-        BlendMap: !ComputeTextureScalar
-            Texture: fec528b9-97cb-4126-9199-8783f30cedd7:Terrain/Splatmap
-            FallbackValue:
-                Value: 1.0
-            Channel: A
-            Scale: {X: 1.0, Y: 1.0}
-            Offset: {X: 0.0, Y: 0.0}
+    cf75ac02527fed0e2e0ad87f5f33ec17:
+        Name: Rock Slope Blend
+        Material: 684c352a-c489-4c6f-a048-a18baafed74a:Terrain/Material_Layer_Rock
+        BlendMap: !ComputeShaderClassScalar
+            MixinReference: Terrain_Blend_Slope
+            Generics: {}
+            CompositionNodes:
+                019b91068c0200c61a5ebc42606f694e~MinSlope: !ComputeFloat
+                    Value: 0.3
+                9885dab7f2364eebe21bf29ea8b656ea~MaxSlope: !ComputeFloat
+                    Value: 1.0
         Overrides:
-            UVScale: {X: 100.0, Y: 100.0}
+            UVScale: {X: 150.0, Y: 150.0}

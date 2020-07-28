@@ -30,7 +30,7 @@ namespace StrideTerrain.Splines
         public override void Draw(RenderContext context)
         {
             base.Draw(context);
-
+            
             var game = Services.GetService<IGame>();
             var graphicsContext = game.GraphicsContext;
             var graphicsDevice = Services.GetService<IGraphicsDeviceService>().GraphicsDevice;

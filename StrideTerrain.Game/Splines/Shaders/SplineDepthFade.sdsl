@@ -1,0 +1,17 @@
+shader SplineDepthFade : ComputeColor, DepthBase, ShaderBase, MaterialPixelStream
+{
+	override float4 Compute()
+	{
+		// Sample depth buffer
+		float2 screenPos = streams.ShadingPosition.xy;
+		float2 screenSpaceUv = float2(screenPos.x / ViewSize.x, screenPos.y / ViewSize.y);
+		float sceneDepthVS = ComputeDepthFromUV(screenSpaceUv);
+		
+		// Compute view space depth
+		float depthPS = streams.ShadingPosition.z;
+		float depthVS = ComputeDepthFromZProj(depthPS);
+		
+		float alpha = saturate(abs(sceneDepthVS - depthVS));
+		return float4(alpha, 0, 0, 0);
+	}
+};
