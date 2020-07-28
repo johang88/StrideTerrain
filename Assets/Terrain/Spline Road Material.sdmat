@@ -10,7 +10,6 @@ Attributes:
     Displacement: !MaterialDisplacementMapFeature
         Enabled: false
         DisplacementMap: !ComputeTextureScalar
-            Texture: 6d4be6b7-5195-478f-aced-6665d333cd66:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Displacement
             FallbackValue:
                 Value: 1.0
             Scale: {X: 1.0, Y: 1.0}
