@@ -30,7 +30,7 @@ namespace StrideTerrain.Splines
         public override void Draw(RenderContext context)
         {
             base.Draw(context);
-            
+
             var game = Services.GetService<IGame>();
             var graphicsContext = game.GraphicsContext;
             var graphicsDevice = Services.GetService<IGraphicsDeviceService>().GraphicsDevice;
@@ -46,7 +46,13 @@ namespace StrideTerrain.Splines
                 }
                 catch
                 {
-                    // We get random exceptions when the editor reloads the assets, just swallow it for now
+                    // Stride has trouble reconnecting some entities properly when hot reloading assemblies in the editor
+                    // We try to fix this using a hack ... should probably try to reproduce in a smaller project and create an issue
+                    // In this case this shows as the heightmap being null
+                    if (component.Terrain.Heightmap == null)
+                    {
+                        component.Terrain = Hacks.RelinkComponent<TerrainComponent>(EntityManager, component.Terrain.Entity.Id);
+                    }
                 }
             });
         }
@@ -62,7 +68,7 @@ namespace StrideTerrain.Splines
             {
                 // Do nothing if we cant' render, unless in editor, they can be useful there :)
                 data.Dispose();
-                return; 
+                return;
             }
 
             SplineMeshBuilder.CreateSplineMesh(component, data.Vertices, data.Indices);
