@@ -72,5 +72,7 @@ Layers:
                     Value: 0.3
                 9885dab7f2364eebe21bf29ea8b656ea~MaxSlope: !ComputeFloat
                     Value: 1.0
+                9885dab7f2364eebe21bf29ea8b656eb~Strength: !ComputeFloat
+                    Value: 5.0
         Overrides:
             UVScale: {X: 150.0, Y: 150.0}

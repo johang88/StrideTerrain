@@ -9,7 +9,7 @@ namespace StrideTerrain.Splines
         public static void CreateSplineMesh(SplineMeshComponent component, FastList<VertexPositionNormalTangentColorTexture> vertices, FastList<int> indices)
         {
             var children = component.Entity.Transform.Children;
-            if (component.Material == null || children.Count < 2 || component.Width <= 0.0f)
+            if (children.Count < 2 || component.Width <= 0.0f)
             {
                 return;
             }

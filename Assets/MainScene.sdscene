@@ -21,7 +21,7 @@ Hierarchy:
                 Components:
                     4c48271fc6a805bb100a05cf2e223ce9: !TransformComponent
                         Id: b3fe7acb-ce23-4ce1-8f2b-a9ae17dbb40e
-                        Position: {X: 0.0, Y: 0.12, Z: 0.0}
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
@@ -125,7 +125,7 @@ Hierarchy:
                     5ab3300ae74fa14a9efcaa1f506407ce: !TransformComponent
                         Id: 0a30b35a-4fe7-4aa1-9efc-aa1f506407ce
                         Position: {X: 26.0, Y: 32.0, Z: -16.80595}
-                        Rotation: {X: 0.00422709342, Y: 0.634075165, Z: 0.222177342, W: 0.740653753}
+                        Rotation: {X: 0.00696260948, Y: 0.6431473, Z: 0.222108454, W: 0.732789755}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     209f95c46d53de41a3dfff661934ae6c: !LightComponent
@@ -461,8 +461,8 @@ Hierarchy:
                         Mask: fec528b9-97cb-4126-9199-8783f30cedd7:Terrain/Splatmap
                         MinScale: 0.3
                         MaxScale: 1.0
-                        MaxSlope: 0.6
-                        Seed: 0
+                        MaxSlope: 0.3
+                        Seed: 1
                         BlockingSplines:
                             10064567a13b4178ae8a009a55e3b55c: ref!! 667b1291-6449-49a8-b0c4-bdeefdecc478
                     28412226a98f4a970a355a7465bf4ee9: !ModelComponent

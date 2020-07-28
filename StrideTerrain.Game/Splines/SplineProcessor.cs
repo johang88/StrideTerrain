@@ -58,6 +58,13 @@ namespace StrideTerrain.Splines
             data.Model.Materials.Add(component.Material);
             data.ModelComponent.IsShadowCaster = component.CastShadows;
 
+            if (component.Material == null && EntityManager.ExecutionMode != Stride.Engine.Design.ExecutionMode.Editor)
+            {
+                // Do nothing if we cant' render, unless in editor, they can be useful there :)
+                data.Dispose();
+                return; 
+            }
+
             SplineMeshBuilder.CreateSplineMesh(component, data.Vertices, data.Indices);
             if (data.Indices.Count == 0)
             {

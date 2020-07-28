@@ -7,7 +7,7 @@ Implementes a terrain renderer as well as some associated features.
 * A spline renderer that can optinally be aligned to the height map (for roads etc)
 
 ## Terrain Usage:
-Add terrain component an entity, setup heightmap and material. If using a height field collider then the entity should be offset (0.5, 0, 0.5) from the origin.
+Add terrain component an entity, setup heightmap and material. If using a height field collider then the entity should be offset (0.5, 0, 0.5) from the origin. Material can be setup using blend layers or whaterver you like.
 
 ## Spline
 Add spline component, then add child entities, these children will be used as control points for the spline. Terrain can be set on the spline component if it should be aligned to the terrain heightmap.

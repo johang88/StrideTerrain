@@ -21,6 +21,7 @@ Attributes:
             Filtering: Anisotropic
             Scale: {X: 1.0, Y: 1.0}
             Offset: {X: 0.0, Y: 0.0}
+        Invert: true
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeTextureColor
             Texture: df07e464-d5fa-47de-913b-488bb0b2ec53:Terrain/Textures/Rocks011_2K-JPG/Rocks011_2K_Color

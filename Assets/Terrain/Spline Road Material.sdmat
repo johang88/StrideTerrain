@@ -3,6 +3,23 @@ Id: 2fbfb7be-3d5f-4483-bfa7-1292789a167d
 SerializedVersion: {Stride: 2.0.0.0}
 Tags: []
 Attributes:
+    Tessellation: !MaterialTessellationFlatFeature
+        Enabled: false
+        TriangleSize: 2.0
+        AdjacentEdgeAverage: true
+    Displacement: !MaterialDisplacementMapFeature
+        Enabled: false
+        DisplacementMap: !ComputeTextureScalar
+            Texture: 6d4be6b7-5195-478f-aced-6665d333cd66:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Displacement
+            FallbackValue:
+                Value: 1.0
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Enabled: false
+        Intensity: !ComputeFloat
+            Value: 0.1
+        ScaleAndBias: false
+        Stage: Domain
     Surface: !MaterialNormalMapFeature
         NormalMap: !ComputeTextureColor
             Texture: 68a4f60a-fb7e-4a94-a706-8b832b987496:Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Normal

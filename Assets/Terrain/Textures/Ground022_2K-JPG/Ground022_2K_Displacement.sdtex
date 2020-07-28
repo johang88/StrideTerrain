@@ -1,0 +1,6 @@
+!Texture
+Id: 6d4be6b7-5195-478f-aced-6665d333cd66
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Source: !file ../../../../Resources/Terrain/Textures/Ground022_2K-JPG/Ground022_2K_Displacement.jpg
+Type: !GrayscaleTextureType {}
